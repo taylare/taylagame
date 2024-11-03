@@ -13,20 +13,19 @@ var started = false;
 // Variable to track the current level.
 var level = 0;
 
-// 1. Use jQuery to detect a keypress event.
-//    When a key is pressed for the first time, the game starts by calling nextSequence().
-$(document).click(function() {
+// 1. Detect a click or touchstart event to start the game.
+$(document).on("click touchstart", function() {
   if (!started) {
-    // 3. Update the h1 title to indicate the current level (starts at "Level 0").
+    // Update the h1 title to indicate the current level (starts at "Level 0").
     $("#level-title").text("Level " + level);
     nextSequence();  // Call nextSequence to begin the game pattern.
-    started = true;  // Set started to true, so the game only starts once on keypress.
+    started = true;  // Set started to true, so the game only starts once on click or touchstart.
   }
 });
 
-// jQuery to detect button clicks by the user.
+// Detect button clicks or touchstart by the user.
 // This function captures the ID of the clicked button and adds it to the user pattern array.
-$(".btn").click(function() {
+$(".btn").on("click touchstart", function() {
   var userChosenColour = $(this).attr("id");  // Get the ID of the clicked button.
   userClickedPattern.push(userChosenColour);  // Add the color to the user's pattern.
 
