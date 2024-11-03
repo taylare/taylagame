@@ -47,7 +47,7 @@ function nextSequence() {
   gamePattern.push(randomChosenColour);  // Add the chosen color to the game pattern.
 
   // Add visual effect by fading the selected button.
-  $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
+  $("#" + randomChosenColour).fadeIn(200).fadeOut(200).fadeIn(200);
   playSound(randomChosenColour);  // Play the sound for the chosen color.
 }
 
@@ -88,8 +88,6 @@ function checkAnswer(clickedPattern) {
       $("body").removeClass("game-over");
     }, 200);
 
-    // Change the h1 title to indicate the game is over and prompt to restart.
-    $("#level-title").text("Game over, tap anywhere to restart");
     startOver();  // Restart the game by calling startOver.
   }
 }
@@ -100,4 +98,6 @@ function startOver() {
   gamePattern = [];  // Clear the game pattern.
   userClickedPattern = [];  // Clear the user pattern.
   started = false;  // Reset started to allow the game to start again.
+
+  $("#level-title").text("Game over, tap anywhere to restart");
 }
